@@ -11,6 +11,9 @@ import {
   Clock,
   Plus,
   ChevronRight,
+  Eye,
+  Pill,
+  FileText,
   type LucideProps,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -98,6 +101,15 @@ export const Icons = {
   Next: createIcon(ChevronRight),
   Forward: createIcon(ChevronRight),
   ChevronRight: createIcon(ChevronRight),
+
+  // DOT Physical / Medical Records
+  Vision: createIcon(Eye),
+  Eye: createIcon(Eye),
+  Medication: createIcon(Pill),
+  Pill: createIcon(Pill),
+  Document: createIcon(FileText),
+  File: createIcon(FileText),
+  FileText: createIcon(FileText),
 } as const;
 
 export default Icons;

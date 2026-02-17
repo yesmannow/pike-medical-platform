@@ -329,13 +329,28 @@ export default function SymptomChecker({
             )}
 
             {showMedicaidWarning && (
-              <div className="border-2 border-red-700 bg-red-600 px-4 py-4 text-white">
-                <p className="text-xs font-black uppercase tracking-[0.28em]">
-                  Coverage Warning
+              <div className="border-2 border-red-700 bg-red-600 px-6 py-6 text-white">
+                <div className="flex items-center gap-3 mb-3">
+                  <ShieldCheck className="h-10 w-10" strokeWidth={2.5} />
+                  <div>
+                    <p className="text-xs font-black uppercase tracking-[0.28em]">
+                      Coverage Information
+                    </p>
+                    <h3 className="text-xl font-black uppercase">
+                      Medicaid Not Accepted
+                    </h3>
+                  </div>
+                </div>
+                <p className="text-sm font-semibold mb-4">
+                  We cannot accept Medicaid for Primary Care services. However,{' '}
+                  <strong>Urgent Care Indy</strong> (our partner clinic) may accept your plan for acute needs.
                 </p>
-                <p className="text-sm font-semibold">
-                  Medicaid is not accepted for Primary Care appointments.
-                </p>
+                <a
+                  href="/urgent-care"
+                  className="inline-flex h-12 items-center border-2 border-white bg-white px-6 text-xs font-black uppercase tracking-[0.3em] text-red-700 hover:bg-gray-100 transition-all"
+                >
+                  Go to Urgent Care Indy
+                </a>
               </div>
             )}
 
