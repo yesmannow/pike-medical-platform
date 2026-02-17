@@ -2,6 +2,11 @@
  * Central image paths for the site. Place files under public/images as indicated.
  * Use URL-encoded paths for filenames with spaces (e.g. "wellness exam.jpg").
  */
+
+/** Canonical image for og:image / Twitter card (social sharing). Use 1024×683 or 1200×630 for best results. */
+export const OG_IMAGE_PATH =
+  "/images/urgent-care/hero-images/PMC-Dr.-Pike-Xray-1024x683-1.jpg";
+
 export const IMAGES = {
   corporate: {
     branding: {

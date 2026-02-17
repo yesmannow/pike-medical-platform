@@ -40,11 +40,17 @@ export default function PrimaryCareHomePage() {
           <p className="max-w-2xl text-lg text-muted-foreground">
             Many people go to the doctor only when something is wrong. At {site.name}, our goal is to help you manage your health and stay healthy. If you don’t have a primary care provider, contact us today.
           </p>
+          <p className="text-sm font-medium text-foreground">
+            {contact.hours} · {contact.address.line1}, {contact.address.city} ·{" "}
+            <a href={`tel:${contact.phone.replace(/\D/g, "")}`} className="underline-offset-2 hover:underline">
+              {contact.phoneLabel}
+            </a>
+          </p>
           <div className="flex flex-wrap gap-4">
-            <Button asChild size="lg" className="rounded-none uppercase tracking-wider">
+            <Button asChild size="lg" className="rounded-none uppercase tracking-wider min-h-[44px]">
               <Link href="/primary-care/book">{site.cta}</Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="rounded-none uppercase tracking-wider">
+            <Button asChild variant="outline" size="lg" className="rounded-none uppercase tracking-wider min-h-[44px]">
               <a href={`tel:${contact.phone.replace(/\D/g, "")}`}>Call {contact.phoneLabel}</a>
             </Button>
           </div>
@@ -55,7 +61,7 @@ export default function PrimaryCareHomePage() {
       <section className="border-t-2 border-border bg-primary/10 px-6 py-8">
         <div className="mx-auto max-w-4xl">
           <h2 className="mb-2 text-lg font-bold uppercase tracking-wide text-foreground">
-            2025-26 Flu Shots
+            2025–26 Flu Shots
           </h2>
           <p className="mb-4 text-muted-foreground">
             We are offering seasonal flu shots. Have an appointment? Ask about adding a flu shot. You can also walk in to our urgent care clinic during regular hours.

@@ -56,19 +56,19 @@ export const SITE_CONTENT = {
   },
   megaMenu: {
     urgentSolutions: [
-      { label: "Minor Illness", href: "/services/minor-illness" },
-      { label: "Injury Care", href: "/services/injury" },
-      { label: "Triage Tool", href: "/triage" },
+      { label: "Minor Illness", href: "/services" },
+      { label: "Injury Care", href: "/services" },
+      { label: "Save My Spot / Triage", href: "/save-spot" },
     ],
     wellness: [
-      { label: "Sports Physicals", href: "/services/sports-physical" },
-      { label: "DOT Physicals", href: "/services/dot-physical" },
-      { label: "Annual Exams", href: "/services/annual-exams" },
+      { label: "Sports Physicals", href: "/services" },
+      { label: "DOT Physicals", href: "/services" },
+      { label: "Annual Exams", href: "/services" },
     ],
     employers: [
-      { label: "Occupational Health", href: "/employers/occupational-health" },
-      { label: "Workplace Injury", href: "/employers/workplace-injury" },
-      { label: "B2B Portal", href: "/employers/portal" },
+      { label: "Occupational Health", href: "/urgent-care/occupational-health" },
+      { label: "Workplace Injury", href: "/urgent-care/occupational-health" },
+      { label: "B2B Inquiries", href: "#visit" },
     ],
     patientTools: [
       { label: "Self-Pay Price List", href: "/pricing" },

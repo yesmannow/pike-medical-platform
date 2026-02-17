@@ -40,12 +40,20 @@ export default function UrgentCareHomePage() {
           <p className="max-w-2xl text-lg text-muted-foreground">
             No appointment needed. Walk in or save your spot online. Fast visits, transparent pricing, and extended hours.
           </p>
+          <p className="text-sm font-medium text-foreground">
+            {contact.hours} · {contact.address.line1}, {contact.address.city} ·{" "}
+            <a href={`tel:${contact.phone.replace(/\D/g, "")}`} className="underline-offset-2 hover:underline">
+              {contact.phoneLabel}
+            </a>
+          </p>
           <div className="flex flex-wrap gap-4">
-            <Button asChild size="lg" className="rounded-none uppercase tracking-wider">
+            <Button asChild size="lg" className="rounded-none uppercase tracking-wider min-h-[44px]">
               <Link href="/urgent-care/save-spot">{site.cta}</Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="rounded-none uppercase tracking-wider">
-              <Link href="#visit">Address & directions</Link>
+            <Button asChild variant="outline" size="lg" className="rounded-none uppercase tracking-wider min-h-[44px]">
+              <Link href={contact.address.mapsUrl} target="_blank" rel="noopener noreferrer">
+                Get directions
+              </Link>
             </Button>
           </div>
         </div>
@@ -55,7 +63,7 @@ export default function UrgentCareHomePage() {
       <section className="border-t-2 border-border bg-primary/10 px-6 py-8">
         <div className="mx-auto max-w-4xl">
           <h2 className="mb-2 text-lg font-bold uppercase tracking-wide text-foreground">
-            Flu Shots — 2025-26 Season
+            Flu Shots — 2025–26 Season
           </h2>
           <p className="mb-4 text-muted-foreground">
             We are now offering updated flu vaccines for the fall and winter season. Walk in during clinic hours or save your spot online.

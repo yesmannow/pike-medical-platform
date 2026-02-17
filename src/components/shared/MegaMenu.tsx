@@ -26,8 +26,12 @@ export function MegaMenu({ currentTenant }: MegaMenuProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   const basePath = currentTenant ? `/${currentTenant}` : "/urgent-care";
-  const prefix = (href: string) =>
-    href.startsWith("/") ? `${basePath}${href}` : href;
+  const prefix = (href: string) => {
+    if (!href.startsWith("/")) return href;
+    // Don't double-prefix tenant paths (e.g. cross-tenant occupational health)
+    if (href.startsWith("/urgent-care") || href.startsWith("/primary-care")) return href;
+    return `${basePath}${href}`;
+  };
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
