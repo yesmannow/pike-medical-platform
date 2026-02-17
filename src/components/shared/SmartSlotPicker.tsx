@@ -57,7 +57,8 @@ export function SmartSlotPicker({
   }, [intervalMinutes]);
 
   useEffect(() => {
-    generateNextSlots();
+    const id = setTimeout(() => generateNextSlots(), 0);
+    return () => clearTimeout(id);
   }, [generateNextSlots]);
 
   const handleSlotClick = (time: string) => {

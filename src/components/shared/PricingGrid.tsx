@@ -9,9 +9,9 @@ const PRICE_BY_LEVEL: Record<number, number> = {
 
 export default function PricingGrid() {
   return (
-    <section className="border-2 border-border bg-background px-6 py-8">
+    <section className="border-2 border-border bg-card px-6 py-8 shadow-sm" aria-labelledby="pricing-heading">
       <div className="mb-6 flex items-center justify-between">
-        <h2 className="text-2xl font-bold uppercase tracking-[0.22em]">
+        <h2 id="pricing-heading" className="text-2xl font-bold uppercase tracking-[0.22em]">
           Self-Pay Pricing
         </h2>
         <span className="text-xs font-bold uppercase tracking-[0.22em] text-muted-foreground">

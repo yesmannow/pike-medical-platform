@@ -98,19 +98,12 @@
   --secondary-foreground: hsl(0 0% 100%);
   --muted: hsl(220 10% 20%);
   --muted-foreground: hsl(0 0% 70%);
-  --primary: #e15252;
-  --primary-foreground: #ffffff;
-  --accent: #99d1e1;
-  --accent-foreground: #0c0c0c;
-  --foreground: #0c0c0c;
-  --ring: hsl(0 0% 100%);
-  --chart-1: hsl(0 0% 85%);
-  --chart-2: hsl(0 0% 75%);
   --primary: #000000;
   --primary-foreground: #ffffff;
   --accent: #d97070;
   --accent-foreground: #0c0c0c;
-  --foreground: #0c0c0c;
+  --chart-1: hsl(0 0% 85%);
+  --chart-2: hsl(0 0% 75%);
   --sidebar-primary: hsl(0 0% 100%);
   --sidebar-primary-foreground: hsl(220 15% 10%);
   --sidebar-accent: hsl(220 10% 20%);
@@ -138,6 +131,9 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
   }
   button,
   input,

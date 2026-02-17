@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { HeartPulse, Zap } from "lucide-react";
 import {
@@ -12,12 +12,13 @@ import {
 import { PIKE_SITES } from "@/lib/constants";
 
 export function TriageGateway() {
-  const [open, setOpen] = useState(() => {
-    const win = globalThis.window;
-    if (!win) return false;
-    return !win.sessionStorage.getItem("pike-path-selected");
-  });
+  const [open, setOpen] = useState(false);
   const router = useRouter();
+
+  useEffect(() => {
+    const alreadyChose = typeof window !== "undefined" && window.sessionStorage.getItem("pike-path-selected");
+    if (!alreadyChose) setOpen(true);
+  }, []);
 
   const selectPath = (tenant: "urgent-care" | "primary-care") => {
     sessionStorage.setItem("pike-path-selected", "true");
@@ -36,7 +37,7 @@ export function TriageGateway() {
         <div className="grid grid-cols-1 md:grid-cols-2">
           <button
             onClick={() => selectPath("urgent-care")}
-            className="group border-b-2 border-secondary p-8 text-left transition-colors hover:bg-primary md:border-b-0 md:border-r-2"
+            className="group border-b-2 border-secondary p-8 text-left transition-colors duration-200 hover:bg-primary focus:outline-none focus:ring-2 focus:ring-ring focus:ring-inset md:border-b-0 md:border-r-2"
             type="button"
           >
             <Zap
@@ -57,7 +58,7 @@ export function TriageGateway() {
 
           <button
             onClick={() => selectPath("primary-care")}
-            className="group p-8 text-left transition-colors hover:bg-primary"
+            className="group border-b-2 border-transparent p-8 text-left transition-colors duration-200 hover:bg-primary focus:outline-none focus:ring-2 focus:ring-ring focus:ring-inset md:border-b-0"
             type="button"
           >
             <HeartPulse

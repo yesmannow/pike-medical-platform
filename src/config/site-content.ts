@@ -1,3 +1,5 @@
+export type TenantId = "urgent-care" | "primary-care";
+
 export const SITE_CONTENT = {
   sites: {
     urgentCare: {
@@ -8,6 +10,20 @@ export const SITE_CONTENT = {
       accentColor: "#99D1E1",
       tagline: "See a provider today.",
       cta: "Save My Spot",
+      /** Main nav for the urgent care "site" - href is relative to /urgent-care */
+      nav: [
+        { label: "Home", href: "" },
+        { label: "Services", href: "/services" },
+        { label: "Occupational Health", href: "/occupational-health" },
+        { label: "Pricing", href: "/pricing" },
+        { label: "Save My Spot", href: "/save-spot" },
+      ],
+      crossPromo: {
+        title: "Need a primary care provider?",
+        body: "PrimaryCare Indy offers annual exams, chronic care, and a team you can trust.",
+        cta: "Explore Primary Care",
+        href: "/primary-care",
+      },
     },
     primaryCare: {
       id: "primary-care",
@@ -17,7 +33,25 @@ export const SITE_CONTENT = {
       accentColor: "#D97070",
       tagline: "Your partner in long-term health.",
       cta: "Book Appointment",
+      /** Main nav for the primary care "site" - href is relative to /primary-care */
+      nav: [
+        { label: "Home", href: "" },
+        { label: "Services", href: "/services" },
+        { label: "Team", href: "/team" },
+        { label: "Pricing", href: "/pricing" },
+        { label: "Book", href: "/book" },
+      ],
+      crossPromo: {
+        title: "Need care today?",
+        body: "UrgentCare Indy offers walk-in care, same-day visits, and transparent pricing.",
+        cta: "Go to Urgent Care",
+        href: "/urgent-care",
+      },
     },
+  },
+  parentBrand: {
+    name: "Pike Medical Consultants",
+    tagline: "Urgent care and primary care under one roof.",
   },
   megaMenu: {
     urgentSolutions: [
@@ -63,4 +97,21 @@ export const SITE_CONTENT = {
     },
   ],
   triageDisclaimer: "For informational purposes only. Consult a professional.",
+  contact: {
+    phone: "317-555-0100",
+    phoneLabel: "(317) 555-0100",
+    address: {
+      line1: "7911 N. Michigan Rd.",
+      city: "Indianapolis",
+      state: "IN",
+      zip: "46268",
+      mapsUrl: "https://www.google.com/maps/search/?api=1&query=7911+N+Michigan+Rd+Indianapolis+IN+46268",
+    },
+  },
+  primaryCareProviders: [
+    { name: "Dr. James Pike", role: "Medical Director", imageKey: "jamesPike" as const },
+    { name: "Chase Keirn", role: "Family Medicine", imageKey: "chaseKeirn" as const },
+    { name: "Karina White", role: "Primary Care", imageKey: "karinaWhite" as const },
+    { name: "Maddie Klinger", role: "Primary Care", imageKey: "maddieKlinger" as const },
+  ],
 } as const;
