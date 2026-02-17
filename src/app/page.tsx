@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { AnimatedCard, AnimatedSection } from "@/components/shared/AnimatedSection";
 import { TriageGateway } from "@/components/shared/TriageGateway";
 import { IMAGES } from "@/config/images";
 
@@ -7,17 +8,19 @@ export default function Home() {
   return (
     <main id="main-content" className="relative min-h-screen bg-background pb-20 pt-24">
       <TriageGateway />
-      {/* Hero */}
-      <section className="relative mx-auto flex max-w-5xl flex-col gap-10 px-6 py-14 md:py-20">
+      {/* Hero — authentic Dr. Pike imagery with Soft Medical gradient overlay */}
+      <AnimatedSection as="section" className="relative mx-auto flex max-w-5xl flex-col gap-10 px-6 py-14 md:py-20">
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_bottom_right,var(--muted)_0%,transparent_50%)] opacity-40" aria-hidden />
         <div className="absolute right-0 top-0 -z-10 hidden h-full w-1/2 overflow-hidden md:block" aria-hidden>
           <Image
-            src={IMAGES.primaryCare.hero.stethoscope}
+            src={IMAGES.urgentCare.hero.drPikeXray}
             alt=""
             fill
-            className="object-cover opacity-15"
+            className="object-cover opacity-20"
             sizes="50vw"
+            priority
           />
+          <div className="absolute inset-0 bg-gradient-to-br from-background/60 via-transparent to-transparent" aria-hidden />
         </div>
         <div className="flex flex-col gap-6">
           <p className="text-xs font-black uppercase tracking-[0.4em] text-muted-foreground">
@@ -32,7 +35,7 @@ export default function Home() {
           </p>
         </div>
         <div className="grid gap-6 md:grid-cols-2">
-          <article className="group border-2 border-border bg-card/50 p-6 transition-all duration-200 hover:border-primary hover:bg-primary/5 hover:shadow-md focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20">
+          <AnimatedCard delay={0.1} className="group border-2 border-border bg-card/50 p-6 transition-all duration-200 hover:border-primary hover:bg-primary/5 hover:shadow-md focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20">
             <div className="flex items-center justify-between">
               <Image
                 src="/images/urgent-care/branding/uci-logo-transparent-300x67.png"
@@ -60,8 +63,8 @@ export default function Home() {
                 Enter Urgent Care
               </Link>
             </div>
-          </article>
-          <article className="group border-2 border-border bg-card/50 p-6 transition-all duration-200 hover:border-primary hover:bg-primary/5 hover:shadow-md focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20">
+          </AnimatedCard>
+          <AnimatedCard delay={0.2} className="group border-2 border-border bg-card/50 p-6 transition-all duration-200 hover:border-primary hover:bg-primary/5 hover:shadow-md focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20">
             <div className="flex items-center justify-between">
               <Image
                 src="/images/primary-care/branding/pci-logo-retina.png"
@@ -89,9 +92,9 @@ export default function Home() {
                 Enter Primary Care
               </Link>
             </div>
-          </article>
+          </AnimatedCard>
         </div>
-      </section>
+      </AnimatedSection>
     </main>
   );
 }

@@ -9,8 +9,9 @@ const site = SITE_CONTENT.sites.primaryCare;
 const providers = SITE_CONTENT.primaryCareProviders;
 
 export const metadata = {
-  title: `Our Team | ${site.name}`,
-  description: "Meet the primary care providers. Your partner in long-term health.",
+  title: `Medical Staff & Providers | ${site.name}`,
+  description:
+    "Meet our primary care team. Dr. James Pike, Chase Keirn, Karina White, Maddie Klinger. Northwest Indianapolis.",
 };
 
 export default function PrimaryCareTeamPage() {
@@ -21,7 +22,7 @@ export default function PrimaryCareTeamPage() {
           {site.name}
         </h1>
         <h2 className="mb-6 text-3xl font-bold uppercase tracking-tight text-foreground md:text-4xl">
-          Meet the Team
+          Medical Staff
         </h2>
         <p className="mb-10 max-w-2xl text-lg text-muted-foreground">
           Trusted providers for annual exams, chronic care, and preventive medicine.

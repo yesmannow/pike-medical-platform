@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BillingTrust } from "@/components/shared/BillingTrust";
 import { CrossPromo } from "@/components/shared/CrossPromo";
 import TriageSearch from "@/components/shared/TriageSearch";
 import { Button } from "@/components/ui/button";
@@ -7,8 +8,9 @@ import { SITE_CONTENT } from "@/config/site-content";
 const site = SITE_CONTENT.sites.primaryCare;
 
 export const metadata = {
-  title: `Book | ${site.name}`,
-  description: "Request an appointment. Describe your needs and we’ll get you scheduled.",
+  title: `Book an Appointment | ${site.name}`,
+  description:
+    "Schedule your primary care visit. Annual exams, chronic care, follow-ups. Call 317-956-6288 or request online. Northwest Indianapolis.",
 };
 
 export default function PrimaryCareBookPage() {
@@ -22,10 +24,14 @@ export default function PrimaryCareBookPage() {
           {site.cta}
         </h2>
         <p className="mb-10 max-w-2xl text-lg text-muted-foreground">
-          Tell us what you need—annual exam, follow-up, or new patient visit. We’ll respond with available times.
+          Tell us what you need—annual exam, follow-up, or new patient visit. We'll respond with available times.
         </p>
 
         <TriageSearch />
+
+        <div className="mt-8">
+          <BillingTrust tenant="primary-care" showBadge={true} />
+        </div>
 
         <div className="mt-8">
           <Button asChild variant="outline" size="lg" className="rounded-none uppercase tracking-wider">

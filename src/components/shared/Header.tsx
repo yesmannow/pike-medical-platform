@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BrandToggle } from "@/components/shared/BrandToggle";
+import { MegaMenu } from "@/components/shared/MegaMenu";
 import { SITE_CONTENT } from "@/config/site-content";
 import type { TenantId } from "@/config/site-content";
 
@@ -62,13 +63,14 @@ export function Header({ currentTenant }: Readonly<HeaderProps>) {
           </div>
         </div>
 
-        {/* Tenant-specific main nav - only when we're inside a tenant */}
-        {tenantFromPath && (
-          <nav
-            className="flex flex-wrap items-center gap-1 border-t-2 border-border pt-4 md:gap-2"
-            aria-label={`${site.name} site navigation`}
-          >
-            {site.nav.map((item) => {
+        {/* Tenant-specific main nav + cross-promo mega menu */}
+        {(tenantFromPath || currentTenant) && (
+          <div className="flex flex-wrap items-center gap-2 border-t-2 border-border pt-4">
+            <nav
+              className="flex flex-wrap items-center gap-1 md:gap-2"
+              aria-label={`${site.name} site navigation`}
+            >
+              {site.nav.map((item) => {
               const href = item.href ? `${basePath}${item.href}` : basePath;
               const isActive =
                 (item.href === "" && pathname === basePath) ||
@@ -88,7 +90,9 @@ export function Header({ currentTenant }: Readonly<HeaderProps>) {
                 </Link>
               );
             })}
-          </nav>
+            </nav>
+            <MegaMenu currentTenant={tenant} />
+          </div>
         )}
       </div>
     </header>

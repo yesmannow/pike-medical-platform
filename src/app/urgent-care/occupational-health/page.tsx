@@ -8,8 +8,9 @@ import { SITE_CONTENT } from "@/config/site-content";
 const site = SITE_CONTENT.sites.urgentCare;
 
 export const metadata = {
-  title: `Occupational Health | ${site.name}`,
-  description: "DOT physicals, drug testing, workplace injury care. Employer and driver services.",
+  title: `Occupational Health & DOT Physicals | ${site.name}`,
+  description:
+    "Employee DOT physicals $95, drug testing, workplace injury care. Employer and commercial driver services. Northwest Indianapolis.",
 };
 
 export default function UrgentCareOccHealthPage() {

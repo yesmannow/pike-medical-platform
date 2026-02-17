@@ -17,9 +17,10 @@ export const INSURANCE_PROVIDERS: InsuranceProvider[] = [
   { id: "medicaid", name: "Medicaid", acceptedPrimary: false },
 ];
 
-export const SELF_PAY_PRICING = [
-  { level: 1, price: 100 },
-  { level: 2, price: 150 },
-  { level: 3, price: 200 },
-  { level: 4, price: 300 },
-] as const;
+import { SITE_CONTENT } from "./site-content";
+
+/** Derived from site-content.selfPayLevels for triage quote step; keep in sync. */
+export const SELF_PAY_PRICING = SITE_CONTENT.selfPayLevels.map((tier) => ({
+  level: tier.level,
+  price: tier.price,
+})) as ReadonlyArray<{ level: 1 | 2 | 3 | 4; price: number }>;

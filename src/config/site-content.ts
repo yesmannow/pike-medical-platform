@@ -39,6 +39,7 @@ export const SITE_CONTENT = {
         { label: "Services", href: "/services" },
         { label: "Team", href: "/team" },
         { label: "Pricing", href: "/pricing" },
+        { label: "Insurance", href: "/insurance" },
         { label: "Book", href: "/book" },
       ],
       crossPromo: {
@@ -74,32 +75,40 @@ export const SITE_CONTENT = {
       { label: "My Medical Locker", href: "/patient/locker" },
     ],
   },
+  /** Single source for self-pay tiers; used by PricingGrid and triage quote step. */
   selfPayLevels: [
     {
       level: 1,
       label: "Quick consult",
       description: "Minor symptoms, brief visit, no diagnostics.",
+      price: 100,
     },
     {
       level: 2,
       label: "Standard visit",
       description: "Typical walk-in care with basic evaluation.",
+      price: 150,
     },
     {
       level: 3,
       label: "Extended visit",
       description: "Longer evaluation or multiple concerns.",
+      price: 200,
     },
     {
       level: 4,
       label: "Advanced care",
       description: "Complex evaluation or imaging/labs likely needed.",
+      price: 300,
     },
   ],
   triageDisclaimer: "For informational purposes only. Consult a professional.",
   contact: {
-    phone: "317-555-0100",
-    phoneLabel: "(317) 555-0100",
+    phone: "317-956-6288",
+    phoneLabel: "(317) 956-6288",
+    /** Display copy for clinic hours (urgentcareindy.com) */
+    hours: "Mon–Fri 8am–6:30pm / Sat 8am–2:30pm",
+    noAppointmentNeeded: true,
     address: {
       line1: "7911 N. Michigan Rd.",
       city: "Indianapolis",
@@ -108,6 +117,34 @@ export const SITE_CONTENT = {
       mapsUrl: "https://www.google.com/maps/search/?api=1&query=7911+N+Michigan+Rd+Indianapolis+IN+46268",
     },
   },
+  /** Fixed-price services for urgent care (from urgentcareindy.com) */
+  urgentCareServicePrices: [
+    { label: "Sports Physicals", price: 35 },
+    { label: "DOT Physicals", price: 95 },
+    { label: "Pre-employment / College Physicals", price: 50 },
+  ],
+  /** Health share plans accepted (for copy) */
+  healthSharePlans: ["Medishare", "Liberty HealthShare"],
+  /** Emergency disclaimer for footer/contact */
+  emergencyDisclaimer: "If you believe you are experiencing a medical emergency, do not call our office. Call 911 immediately.",
+  /** When portal is available, set to full URL; until then Pay Your Bill links to #visit or placeholder */
+  payBillUrl: "#visit" as const,
+  /** Structured hours for Schema.org (from contact.hours) */
+  openingHoursSchema: [
+    { dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "08:00", closes: "18:30" },
+    { dayOfWeek: ["Saturday"], opens: "08:00", closes: "14:30" },
+  ] as const,
+  /** Primary care services (from primarycareindy.com) */
+  primaryCareServices: [
+    "Blood pressure and cholesterol",
+    "Diabetes management",
+    "Radiology and on-site labs",
+    "Mental health",
+    "Immunizations and vaccinations",
+    "Acute and preventive care",
+  ],
+  /** Missed appointment fee in dollars (primarycareindy.com) */
+  missedAppointmentFee: 50,
   primaryCareProviders: [
     { name: "Dr. James Pike", role: "Medical Director", imageKey: "jamesPike" as const },
     { name: "Chase Keirn", role: "Family Medicine", imageKey: "chaseKeirn" as const },

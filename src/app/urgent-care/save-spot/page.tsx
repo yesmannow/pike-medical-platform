@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BillingTrust } from "@/components/shared/BillingTrust";
 import { CrossPromo } from "@/components/shared/CrossPromo";
 import TriageSearch from "@/components/shared/TriageSearch";
 import { Button } from "@/components/ui/button";
@@ -26,6 +27,10 @@ export default function UrgentCareSaveSpotPage() {
         </p>
 
         <TriageSearch />
+
+        <div className="mt-8">
+          <BillingTrust tenant="urgent-care" showBadge={true} />
+        </div>
 
         <div className="mt-8">
           <Button asChild variant="outline" size="lg" className="rounded-none uppercase tracking-wider">

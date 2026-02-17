@@ -6,10 +6,12 @@ import { IMAGES } from "@/config/images";
 import { SITE_CONTENT } from "@/config/site-content";
 
 const site = SITE_CONTENT.sites.primaryCare;
+const services = SITE_CONTENT.primaryCareServices;
 
 export const metadata = {
-  title: `Services | ${site.name}`,
-  description: "Wellness exams, chronic care, consultations. Your partner in long-term health.",
+  title: `Primary Care Services | Acute, Preventive & Chronic Care | ${site.name}`,
+  description:
+    "Acute care, preventive care, blood pressure & cholesterol, diabetes management, on-site labs, mental health, immunizations. Northwest Indianapolis.",
 };
 
 export default function PrimaryCareServicesPage() {
@@ -23,8 +25,16 @@ export default function PrimaryCareServicesPage() {
           Our Services
         </h2>
         <p className="mb-10 max-w-2xl text-lg text-muted-foreground">
-          Annual exams, chronic care management, and coordinated care for every stage of life.
+          Primary care focused on two goals: (1) managing existing health conditions, and (2) preventing new issues. We help you get chronic issues under control and stay healthy long term.
         </p>
+
+        <ul className="mb-10 grid gap-3 sm:grid-cols-2">
+          {services.map((service) => (
+            <li key={service} className="border-2 border-border bg-card px-4 py-3 font-semibold text-foreground">
+              {service}
+            </li>
+          ))}
+        </ul>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <div className="overflow-hidden border-2 border-border bg-card transition-all hover:border-primary">

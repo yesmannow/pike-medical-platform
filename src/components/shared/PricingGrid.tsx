@@ -1,12 +1,5 @@
 import { SITE_CONTENT } from "@/config/site-content";
 
-const PRICE_BY_LEVEL: Record<number, number> = {
-  1: 100,
-  2: 200,
-  3: 300,
-  4: 400,
-};
-
 export default function PricingGrid() {
   return (
     <section className="border-2 border-border bg-card px-6 py-8 shadow-sm" aria-labelledby="pricing-heading">
@@ -34,7 +27,7 @@ export default function PricingGrid() {
                   '"Inter", "Charter", "Georgia", "Times New Roman", serif',
               }}
             >
-              ${PRICE_BY_LEVEL[level.level]}
+              ${level.price}
             </div>
             <div className="text-lg font-semibold text-foreground">
               {level.label}

@@ -1,5 +1,7 @@
 import Link from "next/link";
+import { BillingTrust } from "@/components/shared/BillingTrust";
 import { CrossPromo } from "@/components/shared/CrossPromo";
+import { PriceEstimator } from "@/components/shared/PriceEstimator";
 import PricingGrid from "@/components/shared/PricingGrid";
 import { Button } from "@/components/ui/button";
 import { SITE_CONTENT } from "@/config/site-content";
@@ -7,8 +9,9 @@ import { SITE_CONTENT } from "@/config/site-content";
 const site = SITE_CONTENT.sites.urgentCare;
 
 export const metadata = {
-  title: `Pricing | ${site.name}`,
-  description: "Transparent self-pay pricing. Know your cost before you visit.",
+  title: `Self-Pay Pricing & Insurance | ${site.name}`,
+  description:
+    "Transparent self-pay rates and levels. We accept most insurance and health-share plans. Know your cost before you visit. Northwest Indianapolis.",
 };
 
 export default function UrgentCarePricingPage() {
@@ -25,7 +28,15 @@ export default function UrgentCarePricingPage() {
           Transparent levels. No surprises. Pay at the time of visit.
         </p>
 
+        <div className="mb-10">
+          <PriceEstimator />
+        </div>
+
         <PricingGrid />
+
+        <div className="mt-10">
+          <BillingTrust tenant="urgent-care" />
+        </div>
 
         <div className="mt-10">
           <Button asChild size="lg" className="rounded-none uppercase tracking-wider">

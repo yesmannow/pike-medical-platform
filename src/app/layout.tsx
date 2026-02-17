@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { BodyTheme } from "@/components/shared/BodyTheme";
 import Footer from "@/components/shared/Footer";
 import Header from "@/components/shared/Header";
+import { MedicalSchema } from "@/components/shared/MedicalSchema";
 import MobileNav from "@/components/shared/MobileNav";
 import "./globals.css";
 
@@ -32,6 +33,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased theme-urgent`}
       >
+        <MedicalSchema />
         <BodyTheme />
         <a
           href="#main-content"

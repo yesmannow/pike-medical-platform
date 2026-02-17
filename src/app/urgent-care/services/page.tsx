@@ -6,10 +6,12 @@ import { IMAGES } from "@/config/images";
 import { SITE_CONTENT } from "@/config/site-content";
 
 const site = SITE_CONTENT.sites.urgentCare;
+const { urgentCareServicePrices } = SITE_CONTENT;
 
 export const metadata = {
-  title: `Services | ${site.name}`,
-  description: "Walk-in care, imaging, rapid labs, minor illness and injury. See a provider today.",
+  title: `What We Treat | Minor Illness, Injury, Labs & Physicals | ${site.name}`,
+  description:
+    "Urgent care for adults and children (ages 2+): minor illnesses & injuries, vaccines, EKG, on-site labs, sports physicals $35, DOT physicals $95. Northwest Indianapolis.",
 };
 
 export default function UrgentCareServicesPage() {
@@ -23,7 +25,7 @@ export default function UrgentCareServicesPage() {
           What We Treat
         </h2>
         <p className="mb-10 max-w-2xl text-lg text-muted-foreground">
-          Walk in or reserve a time. We handle minor illness, injury, imaging, and rapid lab tests.
+          Affordable, convenient urgent care for your everyday needs. We treat many of the same conditions as a hospital ER and can save you time and money. <strong className="text-foreground">Adults and children (ages 2 and up).</strong>
         </p>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -77,12 +79,30 @@ export default function UrgentCareServicesPage() {
           </div>
         </div>
 
+        {/* Fixed-price services (from urgentcareindy.com) */}
+        <div className="mt-10 border-2 border-border bg-card p-6">
+          <h3 className="mb-4 text-lg font-bold uppercase tracking-wide text-foreground">
+            Quick & Easy Physicals
+          </h3>
+          <ul className="grid gap-2 sm:grid-cols-3">
+            {urgentCareServicePrices.map((item) => (
+              <li key={item.label} className="flex justify-between border-b border-border pb-2 last:border-0 sm:flex-col sm:gap-1">
+                <span className="font-semibold text-foreground">{item.label}</span>
+                <span className="text-primary">${item.price}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-4 text-sm text-muted-foreground">
+            On-site lab work and EKGs available; results typically in 3–5 business days. We accept most insurance, health-share plans, and self-pay.
+          </p>
+        </div>
+
         <div className="mt-10 flex flex-wrap gap-4">
           <Button asChild size="lg" className="rounded-none uppercase tracking-wider">
             <Link href="/urgent-care/save-spot">{site.cta}</Link>
           </Button>
           <Button asChild variant="outline" size="lg" className="rounded-none uppercase tracking-wider">
-            <Link href="/urgent-care/pricing">View Pricing</Link>
+            <Link href="/urgent-care/pricing">Self-Pay Pricing</Link>
           </Button>
         </div>
       </section>

@@ -48,26 +48,27 @@
   --radius-4xl: calc(var(--radius) + 16px);
 }
 
+/* Soft Medical palette (2026): Warm Cream background, Pike Teal, Sage — trust and calm */
 :root {
   --radius: 0px;
-  --background: hsl(0 0% 100%);
-  --foreground: hsl(220 15% 10%);
-  --card: hsl(0 0% 96%);
-  --card-foreground: hsl(220 15% 10%);
+  --background: #eeeeee; /* Warm Cream — reduce eye strain */
+  --foreground: hsl(220 20% 12%);
+  --card: hsl(0 0% 98%);
+  --card-foreground: hsl(220 20% 12%);
   --popover: hsl(0 0% 100%);
-  --popover-foreground: hsl(220 15% 10%);
-  --primary: hsl(220 15% 10%);
+  --popover-foreground: hsl(220 20% 12%);
+  --primary: hsl(220 55% 38%); /* Pike Teal #2d44a4 approx */
   --primary-foreground: hsl(0 0% 100%);
-  --secondary: hsl(0 0% 92%);
-  --secondary-foreground: hsl(220 15% 10%);
+  --secondary: hsl(0 0% 94%);
+  --secondary-foreground: hsl(220 20% 12%);
   --muted: hsl(0 0% 92%);
-  --muted-foreground: hsl(220 10% 35%);
-  --accent: hsl(0 0% 95%);
-  --accent-foreground: hsl(220 15% 10%);
-  --destructive: hsl(0 85% 45%);
-  --border: hsl(220 15% 10%);
-  --input: hsl(220 15% 10%);
-  --ring: hsl(220 15% 10%);
+  --muted-foreground: hsl(220 10% 38%);
+  --accent: hsl(120 65% 32%); /* Sage Growth — positive actions */
+  --accent-foreground: hsl(0 0% 100%);
+  --destructive: hsl(0 72% 45%);
+  --border: hsl(220 15% 85%);
+  --input: hsl(220 15% 15%);
+  --ring: hsl(220 55% 38%);
   --border-width: 2px;
   --chart-1: hsl(0 0% 20%);
   --chart-2: hsl(0 0% 30%);
@@ -112,18 +113,20 @@
   --sidebar-ring: hsl(0 0% 100%);
 }
 
+/* Urgent Care: Pike Teal primary, Sage for positive CTAs */
 .theme-urgent {
-  --primary: hsl(150 100% 28%);
+  --primary: hsl(220 55% 38%);
   --primary-foreground: hsl(0 0% 100%);
-  --accent: hsl(150 100% 32%);
+  --accent: hsl(120 65% 32%);
   --accent-foreground: hsl(0 0% 100%);
-  --foreground: hsl(120 10% 5%);
+  --foreground: hsl(220 20% 12%);
 }
 
+/* Primary Care: deeper teal/navy, Sage accent */
 .theme-primary {
-  --primary: hsl(215 84% 23%);
+  --primary: hsl(215 60% 28%);
   --primary-foreground: hsl(0 0% 100%);
-  --accent: hsl(205 80% 52%);
+  --accent: hsl(120 65% 32%);
   --accent-foreground: hsl(0 0% 100%);
   --foreground: hsl(215 30% 12%);
 }
@@ -144,6 +147,12 @@
     border-width: var(--border-width);
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground text-base;
+    font-size: 16px; /* WCAG-friendly; reduces zoom need on mobile */
+  }
+  /* Consistent focus for keyboard nav (WCAG 2.2) */
+  *:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
   }
 }
